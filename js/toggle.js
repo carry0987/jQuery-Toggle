@@ -6,7 +6,7 @@ $(document).ready(function () {
         if ($(this).next(".accordion_body").is(':visible')) {
             $(this).next(".accordion_body").slideUp(300);
             $(this).next(".accordion_body").addClass("collapsed");
-            Cookies.set('collapsed_Nodes', (Cookies.get('collapsed_Nodes') || 's')+tag, { expires: 7, path: '' });
+            Cookies.set('collapsed_Nodes', (Cookies.get('collapsed_Nodes') || '')+tag, { expires: 7, path: '' });
             $(this).children(".plusminus").text('+');
         } else {
             $(this).next(".accordion_body").slideDown(300);
