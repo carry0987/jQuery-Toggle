@@ -11,7 +11,7 @@ $(document).ready(function () {
         } else {
             $(this).next(".accordion_body").slideDown(300);
             $(this).next(".accordion_body").addClass("expadned");
-            Cookies.remove('collapsed_Nodes', (Cookies.get('collapsed_Nodes') || '')+tag, { expires: 7, path: '' });
+            Cookies.remove('collapsed_Nodes', (Cookies.remove('collapsed_Nodes') || '')+tag, { expires: 7, path: '' });
             $(this).children(".plusminus").text('-');
         }
     });
