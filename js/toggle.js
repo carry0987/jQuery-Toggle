@@ -1,8 +1,18 @@
 $(document).ready(function() {
+    if (document.cookie.indexOf('collapsed_Nodes') >= 0) {
+        var getCollapsed = Cookies.get('collapsed_Nodes');
+        var checkCollapsed = getCollapsed.split('|');
+        var arrayLength = checkCollapsed.length;
+        for (var i = 0; i < arrayLength; i++) {
+            $('[data-node-tag="#' + checkCollapsed[i] + '"]').next('.accordion_body').addClass('hide');
+            $('[data-node-tag="#' + checkCollapsed[i] + '"]').children('.plusminus').text('+');
+        }
+    }
+
     var adjustCookie = function() {
         var tags = [];
         $('.accordion_container .hide').each(function() {
-            var tag = $(this).prev('.accordion_head').data("node-tag");
+            var tag = $(this).prev('.accordion_head').data('node-tag');
             tags.push(tag.replace('#', ''));
         });
 
@@ -15,26 +25,16 @@ $(document).ready(function() {
         }
     }
 
-    $(".accordion_head").click(function() {
-        if ($(this).next(".accordion_body").is(':visible')) {
-            $(this).next(".accordion_body").slideUp(300);
-            $(this).next(".accordion_body").addClass("hide");
-            $(this).children(".plusminus").text('+');
+    $('.accordion_head').click(function() {
+        if ($(this).next('.accordion_body').is(':visible')) {
+            $(this).next('.accordion_body').slideUp(300);
+            $(this).next('.accordion_body').addClass('hide');
+            $(this).children('.plusminus').text('+');
         } else {
-            $(this).next(".accordion_body").slideDown(300);
-            $(this).next(".accordion_body").removeClass("hide");
-            $(this).children(".plusminus").text('-');
+            $(this).next('.accordion_body').slideDown(300);
+            $(this).next('.accordion_body').removeClass('hide');
+            $(this).children('.plusminus').text('-');
         }
         adjustCookie();
     });
-
-    if (document.cookie.indexOf('collapsed_Nodes') >= 0) {
-        var getCollapsed = Cookies.get('collapsed_Nodes');
-        var checkCollapsed = getCollapsed.split('|');
-        var arrayLength = checkCollapsed.length;
-        for (var i = 0; i < arrayLength; i++) {
-            $('[data-node-tag="#' + checkCollapsed[i] + '"]').next('.accordion_body').addClass("hide");
-            $('[data-node-tag="#' + checkCollapsed[i] + '"]').prev('.accordion_head').children(".plusminus").text('+');
-        }
-    }
 });
