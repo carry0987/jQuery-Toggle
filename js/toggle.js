@@ -33,7 +33,8 @@ $(document).ready(function() {
         var checkCollapsed = getCollapsed.split('|');
         var arrayLength = checkCollapsed.length;
         for (var i = 0; i < arrayLength; i++) {
-            $('[data-node-tag="#' + checkCollapsed[i] + '"]').next(".accordion_body").addClass("hide");
+            $('[data-node-tag="#' + checkCollapsed[i] + '"]').next('.accordion_body').addClass("hide");
+            $('[data-node-tag="#' + checkCollapsed[i] + '"]').prev('.accordion_head').children(".plusminus").text('-');
         }
     }
 });
