@@ -16,7 +16,6 @@ $(document).ready(function() {
     }
 
     $(".accordion_head").click(function() {
-        var tag = $(this).data("node-tag");
         if ($(this).next(".accordion_body").is(':visible')) {
             $(this).next(".accordion_body").slideUp(300);
             $(this).next(".accordion_body").addClass("hide");
