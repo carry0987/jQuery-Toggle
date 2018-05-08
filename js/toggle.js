@@ -18,7 +18,8 @@ $(document).ready(function() {
 
         if (tags.length) {
             Cookies.set('collapsed_Nodes', tags.join('|'), {
-                expires: 7
+                expires: 7,
+                path: window.location.pathname
             });
         } else {
             Cookies.remove('collapsed_Nodes');
