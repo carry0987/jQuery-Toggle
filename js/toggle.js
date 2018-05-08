@@ -5,7 +5,7 @@ $(document).ready(function() {
         var arrayLength = checkCollapsed.length;
         for (var i = 0; i < arrayLength; i++) {
             $('[data-node="#' + checkCollapsed[i] + '"]').next('.accordion_body').addClass('hide');
-            $('[data-node="#' + checkCollapsed[i] + '"]').children('.plusminus').text('+');
+            $('[data-node="#' + checkCollapsed[i] + '"]').children('.plusminus').children('img').attr('src', './icon/plus.svg');
         }
     }
 
@@ -22,7 +22,7 @@ $(document).ready(function() {
                 path: window.location.pathname
             });
         } else {
-            Cookies.remove('collapsed_Nodes');
+            Cookies.remove('collapsed_Nodes', {path: window.location.pathname});
         }
     }
 
@@ -30,11 +30,11 @@ $(document).ready(function() {
         if ($(this).next('.accordion_body').is(':visible')) {
             $(this).next('.accordion_body').slideUp(300);
             $(this).next('.accordion_body').addClass('hide');
-            $(this).children('.plusminus').text('+');
+            $(this).children('.plusminus').children('img').attr('src', './icon/plus.svg');
         } else {
             $(this).next('.accordion_body').slideDown(300);
             $(this).next('.accordion_body').removeClass('hide');
-            $(this).children('.plusminus').text('-');
+            $(this).children('.plusminus').children('img').attr('src', './icon/minus.svg');
         }
         adjustCookie();
     });
