@@ -4,15 +4,15 @@ $(document).ready(function() {
         var checkCollapsed = getCollapsed.split('|');
         var arrayLength = checkCollapsed.length;
         for (var i = 0; i < arrayLength; i++) {
-            $('[data-node-tag="#' + checkCollapsed[i] + '"]').next('.accordion_body').addClass('hide');
-            $('[data-node-tag="#' + checkCollapsed[i] + '"]').children('.plusminus').text('+');
+            $('[data-node="#' + checkCollapsed[i] + '"]').next('.accordion_body').addClass('hide');
+            $('[data-node="#' + checkCollapsed[i] + '"]').children('.plusminus').text('+');
         }
     }
 
     var adjustCookie = function() {
         var tags = [];
         $('.accordion_container .hide').each(function() {
-            var tag = $(this).prev('.accordion_head').data('node-tag');
+            var tag = $(this).prev('.accordion_head').data('node');
             tags.push(tag.replace('#', ''));
         });
 
