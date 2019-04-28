@@ -1,2 +1,2 @@
 # jQuery-Toggle
-Use cookie.js to save toggle setting
+Use cookie.js to record collapsed div
